@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chinese style tea table
+* source:	https://sketchfab.com/3d-models/chinese-style-tea-table-3f0bae38d9a74ff6bf9ac5fcfb9fd176
+* author:	DailyArt (https://sketchfab.com/D.art)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chinese style tea table" (https://sketchfab.com/3d-models/chinese-style-tea-table-3f0bae38d9a74ff6bf9ac5fcfb9fd176) by DailyArt (https://sketchfab.com/D.art) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
