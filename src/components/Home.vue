@@ -31,12 +31,9 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="2-1">
-                <router-link to="/sky">天空</router-link>
-              </el-menu-item>
-              <el-menu-item index="2-2">
                 <router-link to="/skyBox">天空盒子</router-link>
               </el-menu-item>
-              <el-menu-item index="2-3">
+              <el-menu-item index="2-2">
                 <router-link to="/glslSky">纯代码天空随时间改变</router-link>
               </el-menu-item>
             </el-menu-item-group>
@@ -67,28 +64,35 @@
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-menu-item index="5">
-            <router-link to="/FPV">第一人称视角</router-link>
-          </el-menu-item>
-          <el-menu-item index="6">
-            <router-link to="/guide">小视图</router-link>
-          </el-menu-item>
-          <el-menu-item index="7">
-            <router-link to="/glsl">着色器</router-link>
-          </el-menu-item>
-          <el-submenu index="8">
+          <el-submenu index="5">
+            <template slot="title">
+              <span>视角</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="5-1">
+                <router-link to="/FPV">第一人称视角</router-link>
+              </el-menu-item>
+              <el-menu-item index="5-2">
+                <router-link to="/guide">小视图</router-link>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="6">
             <template slot="title">
               <span>加载器</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="8-1">
+              <el-menu-item index="6-1">
                 <router-link to="/gltfLoader">GLTF加载器</router-link>
               </el-menu-item>
-               <el-menu-item index="8-2">
+               <el-menu-item index="6-2">
                 <router-link to="/addIcon">模型添加图标</router-link>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <el-menu-item index="7">
+            <router-link to="/glsl">着色器</router-link>
+          </el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="20">

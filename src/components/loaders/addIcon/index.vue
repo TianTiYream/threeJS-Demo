@@ -1,5 +1,5 @@
 <!--
- * @Description: 在模型上添加小图标
+ * @Description: 在模型上添加小标牌
  * @Author: xxm
  * @Date: 2021-07-01 11:25:52
 -->
@@ -81,7 +81,7 @@ export default {
 
       console.log(this.scene, 'scene');
 
-      // const shadowHelp = INIT.initHelp({helpType: 'camera', option: light1.shadow.camera})
+      // const shadowHelp = INIT.initHelp({type: 'camera', option: light1.shadow.camera})
       // console.log(shadowHelp, 'shadow');
       // this.scene.add(shadowHelp)
     }, (xhr) => {
@@ -128,7 +128,6 @@ export default {
       })
       const textMesh = new Mesh(geometry, material)
       const {position, name} = that.points[0].hospital
-      console.log(textMesh, 'text');
       textMesh.position.set(position.x, position.y, position.z)
       textMesh.name = name
       that.scene.add(textMesh)

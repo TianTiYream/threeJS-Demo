@@ -113,22 +113,21 @@ export const initRenderer = ({openShadow=false, clearColor=0xeeeeee, width=windo
   }
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(width, height)
-  // renderer.autoClear = false
   return renderer
 }
 
 
 /**
  * @description: 初始化辅助
- * @param {String} helpType
+ * @param {String} type
  * @param {any} option
  * @return {Object}
  */
-export const initHelp = ({helpType='axes', option=200} = {}) => {
-  if (helpType === 'axes') {
+export const initHelp = ({type='axes', option=200} = {}) => {
+  if (type === 'axes') {
     const axesHelp = new AxesHelper(option)
     return axesHelp
-  } else if (helpType === 'camera') {
+  } else if (type === 'camera') {
     const helper = new CameraHelper(option)
     return helper
   }
@@ -201,11 +200,11 @@ export const loadTexture = (url) => {
 export const initThree = ({scene=new Scene(), domId, animateFn}={}) => {
   // 光线、照相机、辅助坐标系
   // const scene = initScene()
-  // const light = initDirectionalLight()
+  const light = initDirectionalLight()
   const camera = initCamera({position: {x: 100, y: 50, z: 1200}})
   const help = initHelp()
 
-  scene.add(camera, help)
+  scene.add(camera, help, light)
 
   // 测试盒子
   // const box = initTestBox({x: 0, y: 10, z: 0})
@@ -222,12 +221,7 @@ export const initThree = ({scene=new Scene(), domId, animateFn}={}) => {
   // 控制器
   const controls = initControls(camera, renderer)
 
-  // 可查看box本地坐标
-  // 以上一层父对象原点为原点
-  // console.log(scene, 'scene');
-  // console.log(animateFn, 'animateFn');
-
   // 动画
   animate(renderer, scene, camera, controls, animateFn)
-  return {camera, renderer, controls}
+  return {camera, renderer, controls, light}
 }

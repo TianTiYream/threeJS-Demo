@@ -27,7 +27,7 @@ export default {
     // camera.rotation.x = 0.52
     camera.lookAt(0, 200, 200)
 
-    const help2 = INIT.initHelp({helpType: 'camera', option: camera})
+    const help2 = INIT.initHelp({type: 'camera', option: camera})
     this.scene.add(help2)
 
     // const pointLight = new PointLight('#ffffff', 1, 1000)

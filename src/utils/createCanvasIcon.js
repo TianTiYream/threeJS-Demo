@@ -1,4 +1,9 @@
-import {spriteMaterial, TextureLoader} from 'three'
+/*
+ * @Description: 创建图标
+ * @Author: xxm
+ * @Date: 2021-06-18 16:36:15
+ */
+import {SpriteMaterial, TextureLoader, RepeatWrapping, Sprite} from 'three'
 
 /**
  * 添加设备模块

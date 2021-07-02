@@ -34,64 +34,63 @@ export default {
     this.createBoxer();
     this.animate();
     const that = this
+    
     window.onmousemove = function (event) {
         event.preventDefault();
-        // console.log(event, 'event');
         if (that.leftPress) {
-            that.cube.rotateOnWorldAxis(
-                new THREE.Vector3(0, 1, 0),
-                event.movementX / 500
-            );
-            that.cube.rotateOnAxis(
-                new THREE.Vector3(1, 0, 0),
-                event.movementY / 500
-            );
+          that.cube.rotateOnWorldAxis(
+            new THREE.Vector3(0, 1, 0),
+            event.movementX / 500
+          );
+          that.cube.rotateOnAxis(
+            new THREE.Vector3(1, 0, 0),
+            event.movementY / 500
+          );
         }
     };
 
     window.onmousedown = function (event) {
-        event.preventDefault();
-        that.leftPress = true;
-
+      event.preventDefault();
+      that.leftPress = true;
     };
 
     window.onmouseup = function (event) {
-        event.preventDefault();
-        that.leftPress = false;
+      event.preventDefault();
+      that.leftPress = false;
     }
 
     window.onkeydown = function (event) {
         switch (event.keyCode) {
-            case 65: // a
-                that.left = true;
-                break;
-            case 68: // d
-                that.right = true;
-                break;
-            case 83: // s
-                that.back = true;
-                break;
-            case 87: // w
-                that.front = true;
-                break;
+          case 37: // ←
+            that.left = true;
+            break;
+          case 39: // →
+            that.right = true;
+            break;
+          case 40: // ↓
+            that.back = true;
+            break;
+          case 38: // ↑
+            that.front = true;
+            break;
         }
     };
 
     window.onkeyup = function (event) {
-        switch (event.keyCode) {
-            case 65: // a
-                that.left = false;
-                break;
-            case 68: // d
-                that.right = false;
-                break;
-            case 83: // s
-                that.back = false;
-                break;
-            case 87: // w
-                that.front = false;
-                break;
-        }
+      switch (event.keyCode) {
+        case 37: // ←
+          that.left = false;
+          break;
+        case 39: // →
+          that.right = false;
+          break;
+        case 40: // ↓
+          that.back = false;
+          break;
+        case 38: // ↑
+          that.front = false;
+          break;
+      }
     };
   },
   methods: {
@@ -113,10 +112,6 @@ export default {
       this.camera.position.set(0, 40, 30);
       this.camera.lookAt(0, 0, 0);
 
-      // 参数初始化
-      // const mouse = new THREE.Vector2();
-      // const raycaster = new THREE.Raycaster();
-
       // 环境光
       var ambientLight = new THREE.AmbientLight(0x606060);
       this.scene.add(ambientLight);
@@ -126,14 +121,15 @@ export default {
       this.scene.add(directionalLight);
     },
 
+    // 网格辅助
     helper() {
-        var grid = new THREE.GridHelper(100, 20, 0xFF0000, 0x000000);
-        grid.material.opacity = 0.1;
-        grid.material.transparent = true;
-        this.scene.add(grid);
+      var grid = new THREE.GridHelper(100, 20, 0xFF0000, 0x000000);
+      grid.material.opacity = 0.1;
+      grid.material.transparent = true;
+      this.scene.add(grid);
 
-        var axesHelper = new THREE.AxesHelper(30);
-        this.scene.add(axesHelper);
+      var axesHelper = new THREE.AxesHelper(30);
+      this.scene.add(axesHelper);
     },
 
     animate() {
@@ -166,10 +162,6 @@ export default {
         let vect1 = this.cube.getWorldDirection(new THREE.Vector3())
         // 左右向量
         let vect2 = this.cube.getWorldDirection(new THREE.Vector3()).cross(new THREE.Vector3(0, 1, 0))
-        // console.log(vect1.z.cross(vect1.y), 'vect1');
-
-        // let vectZ = new THREE.Vector3(0, 0, vect1.z)
-        // let vectY = new THREE.Vector3(0, vect1.y, 0)
 
         if (this.front) {
           // this.cube.translateZ(-1)
@@ -202,7 +194,6 @@ export default {
         var mats = []
         mats.push(new THREE.MeshPhongMaterial({color: 0x00ff00}))
         mats.push(new THREE.MeshPhongMaterial({color: 0xff0000}))
-        // var material = new THREE.MeshPhongMaterial({color: 0x00ff00});
         this.cube = new THREE.Mesh(geometry, mats);
         for (let j = 0; j < geometry.groups.length; j++) {
           if (j === 4) {
